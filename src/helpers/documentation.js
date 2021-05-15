@@ -206,7 +206,9 @@ export const buildDocsContents = (data, rootDir) => {
         id: articleId,
         githubLink: mdxLink,
         modifiedTime,
-        title: articleTitle || "{`title` Not Found}",
+        title: articleTitle === "Overview"
+          ? `${topicTitle}:  ${articleTitle}`
+          : articleTitle || "{`title` Not Found}",
         description,
         url: buildPathFromFile(relativePath),
       };
